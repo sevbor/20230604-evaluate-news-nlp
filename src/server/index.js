@@ -2,20 +2,19 @@
 const dotenv = require('dotenv');
 dotenv.config();
 console.log(`Your API key is ${process.env.API_KEY}`);
-
-
-
-api.listStories(opts, callback);
+const apiKey=process.env.API_KEY
 
 
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
+const meaningCloudAPIResponse = require('./meaningCloudAPI.js')
 var bodyParser = require('body-parser')
 var cors = require('cors')
 
 const app = express()
 
 app.use(express.static('dist'))
+app.use(cors());
 
 console.log(__dirname)
 
@@ -35,8 +34,8 @@ app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 
-app.get('/news',function(req,res){
-    res.send(`Your API key is ${process.env.API_KEY}`)
+app.get('/APIKEY', function (req, res) {
+    res.send(meaningCloudAPIResponse)
 })
 
 
