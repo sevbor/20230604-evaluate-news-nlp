@@ -17,7 +17,7 @@ function handleSubmit(event) {
             return res.json()
         })
         .then(function (data) {
-            const key= data.key;
+            const key = data.key;
             console.log(data);
             return getSummary(urlNewsArticle, key);
         })
@@ -26,9 +26,19 @@ function handleSubmit(event) {
             return { body: data };
         })
         .then((data) => {
-            const entry =  data.body.summary;
+            try{
+            let entry = data.body.summary;
             console.log(entry);
-            return document.getElementById('results').innerHTML = entry
+            const resultsElement = document.getElementById('results');
+
+            if (data.body.status.code =='0') {
+                resultsElement.innerHTML = entry;
+            
+            } else {
+                entry = 'Please enter a valid URL';
+                resultsElement.innerHTML = entry;
+            }
+        }catch (error) {console.error("An error occured:",error);} 
         })
 
     /* Function to GET local Key  */
