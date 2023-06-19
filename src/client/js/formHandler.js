@@ -51,7 +51,7 @@ function handleSubmit(event) {
         console.log(apiKey);
 
         const response = await fetch(
-            `https://api.meaningcloud.com/summarization-1.0?of=json&sentences=5&url=${URL}&key=${apiKey}`
+            `https://api.meaningcloud.com/sentiment-2.1?of=json&sentences=5&url=${URL}&key=${apiKey}`
         );
 
         if (!response.ok) {

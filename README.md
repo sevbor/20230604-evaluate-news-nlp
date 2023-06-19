@@ -5,7 +5,7 @@
 - **Name**: Evaluate News NLP
 - **Version**: 1.0.0
 - **Description**: This project aims to demonstrate the evaluation of news articles using Natural Language Processing (NLP) techniques.
-- **Author**: [Your Name]
+- **Author**: Tibor Sevenheck
 - **License**: ISC
 
 ## Project Setup
@@ -16,7 +16,6 @@
   - `start`: Command to start the application using `node src/server/index.js`.
   - `build-prod`: Command to build the production version of the app using Webpack with the configuration file `webpack.prod.js`.
   - `build-dev`: Command to start the development server using Webpack Dev Server with the configuration file `webpack.dev.js` and open the app in the browser.
-- **Keywords**: [List of keywords]
 
 ## Dependencies
 
