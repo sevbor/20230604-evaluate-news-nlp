@@ -26,19 +26,17 @@ function handleSubmit(event) {
             return { body: data };
         })
         .then((data) => {
-            try{
-            let entry = data.body.summary;
+            // agreement :   "DISAGREEMENT"
+            // confidence :            "86"
+            // irony:            "NONIRONIC"
+            // model:            "general"
+
+            
+            let entry = `${data.body.agreement} with a confidence of ${data.body.confidence}. This is ${data.body.irony} `
             console.log(entry);
             const resultsElement = document.getElementById('results');
+            resultsElement.innerHTML = entry;
 
-            if (data.body.status.code =='0') {
-                resultsElement.innerHTML = entry;
-            
-            } else {
-                entry = 'Please enter a valid URL';
-                resultsElement.innerHTML = entry;
-            }
-        }catch (error) {console.error("An error occured:",error);} 
         })
 
     /* Function to GET local Key  */
