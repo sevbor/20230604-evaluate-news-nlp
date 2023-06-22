@@ -4,6 +4,7 @@
  */
 
 function isValidUrl(text) {
+  console.log('Check URL')
   try {
     const url = new URL(text);
     return (

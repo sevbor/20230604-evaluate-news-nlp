@@ -1,5 +1,4 @@
 function handleSubmit(event) {
-
     event.preventDefault()
 
     // check what text was put into the form field
@@ -8,9 +7,12 @@ function handleSubmit(event) {
 
 
     console.log("::: Form Submitted :::")
-
     const urlNewsArticle = formText = document.getElementById('name').value
+   // console.log(Client.isValidUrl(urlNewsArticle))
 
+    if (Client.isValidUrl(urlNewsArticle)) {
+        console.log('Valid Url');
+   
     // Get coordinates APIKEY
     fetch('http://localhost:8081/APIKEY')
         .then(res => {
@@ -31,13 +33,17 @@ function handleSubmit(event) {
             // irony:            "NONIRONIC"
             // model:            "general"
 
-            
+
             let entry = `${data.body.agreement} with a confidence of ${data.body.confidence}. This is ${data.body.irony} `
             console.log(entry);
             const resultsElement = document.getElementById('results');
             resultsElement.innerHTML = entry;
 
         })
+    } else {
+        const resultsElement = document.getElementById('results');
+        resultsElement.innerHTML=('Please enter valid URL')
+    }
 
     /* Function to GET local Key  */
 
